@@ -1,0 +1,242 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('../FONTS/臺灣新細明體.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-size: 20px;
+}
+/* 适配高分辨率屏幕（一般为 Retina 屏幕，分辨率为 192dpi 或更高） */
+@media only screen and (min-resolution: 192dpi) {
+    html {
+        font-size: 22px; /* 增加字体大小 */
+    }
+}
+
+/* 适配超高分辨率屏幕（例如 4K 屏幕，分辨率为 384dpi 或更高） */
+@media only screen and (min-resolution: 384dpi) {
+    html {
+        font-size: 24px; /* 更大字体 */
+    }
+}
+body,
+.main {
+    height: auto; /* 让高度根据内容自适应 */
+    /*overflow-y: hidden;  禁用纵向滚动条 */
+}
+::-webkit-scrollbar {
+    display: none; /* 隐藏滚动条 */
+}
+/* 让 body 内容居中显示，水平和垂直居中 */
+body {
+    /*overflow-y: hidden;*/
+    display: flex;
+    overflow: scroll;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    /*height: 100vh; !* 页面占满整个视口高度 *!*/
+    margin: 0; /* 去掉默认的外边距 */
+    width: 100%; /* 页面宽度为 100% */
+    padding: 20px 0; /* 设置上下内边距 */
+    position: relative;
+    font-family: 'MyFont', sans-serif;
+}
+.main {
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 页面占满整个视口高度 */
+    margin: 0; /* 去掉默认的外边距 */
+    width: 100%; /* 页面宽度为 100% */
+    padding: 20px 0; /* 设置上下内边距 */
+    position: relative;
+}
+/* 设置背景图层 */
+body::before {
+    content: ""; /* 创建一个伪元素 */
+    position: fixed; /* 固定背景 */
+    top: 0; /* 从页面顶部开始 */
+    left: 0; /* 从页面左侧开始 */
+    width: 100%; /* 背景图宽度为 100% */
+    height: 100%; /* 背景图高度为 100% */
+    background-image: url("../IMG/retina_wood.png"); /* 背景图 */
+    background-repeat: repeat; /* 背景图无缝拼接 */
+    background-position: top left; /* 背景图从左上角开始 */
+    /*background-color: rgba(255, 255, 255, 0.5);  设置透明背景，0.5 为透明度 */
+    z-index: -1; /* 确保背景图层在所有内容之后 */
+}
+
+/* .note 样式 */
+.note {
+    /*width: 70%; !* 宽度为视口的 70% *!*/
+    /*height: 90%; !* 高度自动，随内容变化 *!*/
+    margin: auto; /* 自动外边距，使其水平居中 */
+    min-width: 100%; /* 最小宽度为 400px */
+    position: relative; /* 相对定位，用于定位子元素 */
+    align-items: center; /* 元素在容器中垂直居中 */
+}
+
+/* .backnote 样式，纸张背景 */
+.backnote {
+    background-color: #f4f0e4; /* 设置背景颜色为浅色 */
+    border: 0; /* 去掉边框 */
+}
+
+/* .frontnote 样式，文字区域 */
+.frontnote {
+    background-color: #fbf7ed; /* 设置背景颜色为白色 */
+    border: 0; /* 去掉边框 */
+    overflow-wrap: break-word; /* 允许长单词换行 */
+    width: 95%; /* 宽度为父元素的 95% */
+    margin-left: auto; /* 自动左外边距 */
+    margin-right: 0; /* 右外边距为 0 */
+    border-left: solid 2px #e8e2d7; /* 左侧边框 */
+}
+/* 底部阴影效果 */
+.note::after {
+    content: ""; /* 创建伪元素 */
+    position: absolute; /* 绝对定位 */
+    bottom: 0; /* 紧贴底部 */
+    left: 0; /* 紧贴左边 */
+    height: 20px; /* 阴影高度 */
+    width: 100%; /* 阴影宽度 */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent); /* 阴影渐变效果 */
+    pointer-events: none; /* 使阴影不影响鼠标事件 */
+    z-index: 10; /* 层级设置，确保阴影在其他内容之上 */
+}
+/* 修改 paper输入框 的样式 */
+#paper {
+    background: transparent; /* 背景透明 */
+    border: none; /* 去掉边框 */
+    outline: none; /* 去掉输入框的轮廓 */
+    box-shadow: none; /* 去掉阴影 */
+    width: 100%; /* 宽度 100% */
+    /*height: auto;  高度自动调整 */
+    resize: none; /* 禁止调整大小 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    background-position-y: 1em; /* 设置背景位置 */
+    /*font-family: "Courier New", Courier, monospace; !* 使用等宽字体 *!*/
+    font-family: 'MyFont', sans-serif;
+    line-height: 1.9em; /* 行高 */
+    font-size: 1rem; /* 字体大小 */
+    padding-top: 0.45em; /* 上内边距 */
+    padding-bottom: 0.45em; /* 下内边距 */
+    -webkit-font-smoothing: antialiased; /* 提升字体平滑效果 */
+    -moz-osx-font-smoothing: grayscale; /* 提升字体平滑效果 */
+    scrollbar-width: none; /* Firefox */
+}
+#paper::-webkit-scrollbar {
+    display: none;              /* WebKit */
+}
+/* .backnote 和 .frontnote 样式，纸张的纹理背景 */
+.backnote,
+.frontnote {
+    font-size: 1rem; /* 字体大小 */
+    line-height: 1.8em; /* 行高 */
+    background-image: repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 1.8em,
+            #e8e2d7 1.8em,
+            #e8e2d7 1.9em
+    );
+    background-size: 100% 1.9em; /* 背景重复的间隔 */
+    background-position: 0 0.45em; /* 背景位置调整 */
+}
+
+.notebottom {
+    display: flex; /*保证底栏按钮内联*/
+    /*text-align: right;*/
+    justify-content: flex-end;
+    bottom: -0.5rem;
+    position: relative;
+}
+
+.note-button {
+    background: none; /* 去掉背景 */
+    border: none; /* 去掉边框 */
+    padding: 0; /* 去掉内边距 */
+    font-size: inherit; /* 保持字体大小继承自父元素 */
+    cursor: pointer; /* 悬停时显示小手 */
+    /*text-align: right;*/
+}
+#submit-trigger,#picture-trigger {
+    /*top:5%;*/
+    bottom: 0;
+    filter: grayscale(100%); /* 将颜色转为黑白 */
+    transition: filter 0.3s ease; /* 添加渐变效果 */
+    /*text-align: right;*/
+
+}
+#submit-container button,#emoji-container span{
+    cursor: pointer; /* 显示点击手型光标 */
+}
+.space-button {
+    background: none; /* 去掉背景 */
+    border: none; /* 去掉边框 */
+    padding: 0; /* 去掉内边距 */
+    font-size: inherit; /* 保持字体大小继承自父元素 */
+    -webkit-user-select: none;
+    user-select: none;
+}
+.unselectable {
+    -webkit-user-select: none;
+    user-select: none; /* 禁止选中 */
+    pointer-events: auto; /* 允许鼠标事件 */
+
+}
+
+
+/* 表情容器过渡效果 */
+#emoji-container {
+    display: none;
+    position: fixed;
+    margin: auto;
+    top: 0;
+    /*bottom: 30%;*/
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* 平滑的过渡效果 */
+    max-width: 2rem;
+    height: 100%;
+    overflow: auto;
+    /*border: 0.0625rem solid #ccc;*/
+    /*padding: 0.625rem;*/
+    background-color: #f4f0e3;
+    z-index: 100;
+}
+
+#emoji-container.show {
+    display: block;
+    opacity: 1; /* 当显示时，透明度为 1 */
+}
+#emoji-container span {
+    font-size: 1.5rem;
+}
+
+.editor-wrapper {
+    position: relative;
+}
+.placeholder {
+    position: absolute;
+    top: 0.47rem;
+    /*left: 10px;*/
+    color: #888;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.svg{
+    z-index:15;
+    height:1rem;
+    width:1rem;
+    position: relative;
+}
+.logo{
+    max-width: 12%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}

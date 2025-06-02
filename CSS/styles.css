@@ -21,27 +21,32 @@ html {
         font-size: 26px; /* 更大字体 */
     }
 }
-header,.content,.medium{
-    width: 60%;
-    margin: auto;
-}
-.medium{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /*max-width: 60%;*/
-    margin: auto;
+
+/* 当屏幕宽度 ≤ 1024px 时应用的样式 */
+@media (max-width: 1024px) {
+    header,.content{
+        width: 95%;
+    }
+    .poem-container {
+        grid-template-columns: 2fr;
+    }
 }
 /* 当屏幕宽度 ≤ 1024px 时应用的样式 */
 @media (max-width: 1024px) {
     header,.content{
         width: 95%;
     }
+    .poem-container {
+        grid-template-columns: 2fr;
+    }
 }
 /* 当屏幕宽度 ≤ 1600px 时应用的样式 */
 @media (max-width: 1600px) {
     .medium{
         flex-direction: column;
+    }
+    .poem-container {
+        grid-template-columns: 3fr;
     }
 }
 body{
@@ -112,9 +117,31 @@ header{
 .logo{
     max-width: 8rem;
 }
-
+header,.content,.medium{
+    width: 60%;
+    margin: auto;
+}
+.medium{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*max-width: 60%;*/
+    margin: auto;
+}
 .medium-content{
     padding: 1rem;
+}
+.poem-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem; /* 间距，相当于 poem 的 margin */
+    max-width: 100%;
+    padding: 3rem; /* 替代 poem 的 margin 效果 */
+}
+
+.poem {
+    min-width: 0; /* 避免内容撑爆容器 */
+    max-width: 100%;
 }
 footer{
     margin: auto;

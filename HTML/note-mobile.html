@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>写点什么吧……</title>
+    <link rel="stylesheet" href="../CSS/note-mobile.css" />
+
+</head>
+<body>
+<div class="main">
+    <div class="top"></div>
+    <div class="note">
+        <div class="backnote">
+            <div class="frontnote">
+                <!--<textarea id="paper" placeholder="不要因为走得太远，就忘了当初为什么出发。"></textarea>-->
+                <div class="editor-wrapper">
+                    <div id="paper" contenteditable="true"></div>
+                    <div class="placeholder">不要因为走得太远，就忘了当初为什么出发。</div>
+                </div>
+
+                <div class="notebottom">
+                    <div class="buttons-exist">
+                        <button class="note-button unselectable" id="symbol-trigger" title="添加表情或符号">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10H5C3.89543 10 3 10.8954 3 12C3 13.1046 3.89543 14 5 14H10V19C10 20.1046 10.8954 21 12 21C13.1046 21 14 20.1046 14 19V14H19C20.1046 14 21 13.1046 21 12C21 10.8954 20.1046 10 19 10L14 10V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V10" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="bottom-space">
+                        <button class="space-button unselectable" title="">　</button>
+                    </div>
+                    <div class="buttons-exist">
+                        <button class="note-button unselectable" id="download-btn" title="保存为txt">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.94681 14L4 14L12 21L20 14L15 14C15 10 15.5 4 19 3C16 3 9.94681 4.98631 9.94681 11.025" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="bottom-space">
+                        <button class="space-button unselectable" title="">　</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container unselectable" id="picture-container" >
+    <!--            title="鼠标悬停在图片上时，双击Ctrl查看大图(仅限Edge)"-->
+</div>
+<div class="container unselectable" id="emoji-container">
+    <<span>😀</span><br>
+    <span>😃</span><br>
+    <span>😄</span><br>
+    <span>😁</span><br>
+    <span>😆</span><br>
+    <span>😅</span><br>
+    <span>😂</span><br>
+    <span>🤣</span><br>
+    <span>😊</span><br>
+    <span>😇</span><br>
+    <span>🙂</span><br>
+    <span>🙃</span><br>
+    <span>😉</span><br>
+    <span>😌</span><br>
+    <span>😍</span><br>
+    <span>🥰</span><br>
+    <span>😘</span><br>
+    <span>😗</span><br>
+    <span>😚</span><br>
+    <span>😙</span><br>
+    <span>😋</span><br>
+    <span>😛</span><br>
+    <span>😜</span><br>
+    <span>🤪</span><br>
+    <span>🤨</span><br>
+    <span>🤔</span><br>
+    <span>🤫</span><br>
+    <span>🤭</span><br>
+    <span>😶</span><br>
+    <span>😐</span><br>
+    <span>😑</span><br>
+    <span>😒</span><br>
+    <span>🙄</span><br>
+    <span>😏</span><br>
+    <span>😣</span><br>
+    <span>😥</span><br>
+    <span>😮‍💨</span><br>
+    <span>😮</span><br>
+    <span>😯</span><br>
+    <span>😲</span><br>
+    <span>😳</span><br>
+    <span>🥺</span><br>
+    <span>😢</span><br>
+    <span>😭</span><br>
+    <span>😤</span><br>
+    <span>😠</span><br>
+    <span>😡</span><br>
+    <span>🤬</span><br>
+    <span>🎵</span><br>
+    <span>🎶</span><br>
+    <span>🎼</span><br>
+    <span>🎤</span><br>
+    <span>🎧</span><br>
+    <span>🎷</span><br>
+    <span>🎸</span><br>
+    <span>🎹</span><br>
+    <span>🥁</span><br>
+    <span>🪘</span><br>
+    <span>🪗</span><br>
+    <span>🎻</span><br>
+    <span>🪕</span><br>
+    <span>📯</span><br>
+    <span>🎙️</span><br>
+    <span>🎚️</span><br>
+    <span>🎛️</span><br>
+    <span>🎬</span><br>
+    <span>👍</span><br>
+    <span>👎</span><br>
+    <span>👊</span><br>
+    <span>✊</span><br>
+    <span>🤛</span><br>
+    <span>🤜</span><br>
+    <span>🤞</span><br>
+    <span>✌️</span><br>
+    <span>🤟</span><br>
+    <span>🤘</span><br>
+    <span>🤙</span><br>
+    <span>👌</span><br>
+    <span>🤏</span><br>
+    <span>🫰</span><br>
+    <span>🫶</span><br>
+    <span>🙌</span><br>
+    <span>👏</span><br>
+    <span>🤝</span><br>
+    <span>🙏</span><br>
+    <span>🫱</span><br>
+    <span>🫲</span><br>
+    <span>🫷</span><br>
+    <span>🫸</span><br>
+    <span>🐶</span><br>
+    <span>🐱</span><br>
+    <span>🐭</span><br>
+    <span>🐹</span><br>
+    <span>🐰</span><br>
+    <span>🦊</span><br>
+    <span>🐻</span><br>
+    <span>🐼</span><br>
+    <span>🐨</span><br>
+    <span>🐯</span><br>
+    <span>🦁</span><br>
+    <span>🐮</span><br>
+    <span>🐷</span><br>
+    <span>🐸</span><br>
+    <span>🐵</span><br>
+    <span>🙈</span><br>
+    <span>🌸</span><br>
+    <span>🌼</span><br>
+    <span>🌻</span><br>
+    <span>🌹</span><br>
+    <span>🌷</span><br>
+    <span>💐</span><br>
+    <span>🍀</span><br>
+    <span>🌴</span><br>
+    <span>🌞</span><br>
+    <span>🌝</span><br>
+    <span>🌛</span><br>
+    <span>🌜</span><br>
+    <span>🌚</span><br>
+    <span>🌧️</span><br>
+    <span>⛈️</span><br>
+    <span>❄️</span><br>
+    <span>🍏</span><br>
+    <span>🍎</span><br>
+    <span>🍐</span><br>
+    <span>🍊</span><br>
+    <span>🍌</span><br>
+    <span>🍉</span><br>
+    <span>🍇</span><br>
+    <span>🍓</span><br>
+    <span>🍒</span><br>
+    <span>🍑</span><br>
+    <span>🥭</span><br>
+    <span>🍍</span><br>
+    <span>🥥</span><br>
+    <span>🥝</span><br>
+    <span>🥑</span><br>
+    <span>🥦</span><br>
+    <span>🍞</span><br>
+    <span>🥐</span><br>
+    <span>🥖</span><br>
+    <span>🧀</span><br>
+    <span>🍗</span><br>
+    <span>🍖</span><br>
+    <span>🍔</span><br>
+    <span>🍟</span><br>
+    <span>🍕</span><br>
+    <span>🌭</span><br>
+    <span>🥪</span><br>
+    <span>🌮</span><br>
+    <span>🍜</span><br>
+    <span>🍣</span><br>
+    <span>🍰</span><br>
+    <span>🎂</span><br>
+    <span>📘</span><br>
+    <span>📙</span><br>
+    <span>📗</span><br>
+    <span>📕</span><br>
+    <span>📓</span><br>
+    <span>📝</span><br>
+    <span>✏️</span><br>
+    <span>🖊️</span><br>
+    <span>📖</span><br>
+    <span>📚</span><br>
+    <span>🧠</span><br>
+    <span>🧮</span><br>
+    <span>📊</span><br>
+    <span>📈</span><br>
+    <span>📉</span><br>
+    <span>＋</span><br>
+    <span>−</span><br>
+    <span>×</span><br>
+    <span>÷</span><br>
+    <span>=</span><br>
+    <span>≠</span><br>
+    <span>≈</span><br>
+    <span>∞</span><br>
+    <span>√</span><br>
+    <span>∑</span><br>
+    <span>∫</span><br>
+    <span>Δ</span><br>
+    <span>∂</span><br>
+    <span>∩</span><br>
+    <span>∪</span><br>
+    <span>∈</span><br>
+    <span>∉</span><br>
+    <span>⊂</span><br>
+    <span>⊄</span><br>
+    <span>⊆</span><br>
+    <span>⊇</span><br>
+    <span>∀</span><br>
+    <span>∃</span><br>
+    <span>∅</span><br>
+    <span>⊕</span><br>
+    <span>⊗</span><br>
+    <span>⊥</span><br>
+    <span>Π</span><br>
+    <span>⇔</span><br>
+    <span>⇒</span><br>
+    <span>⇐</span><br>
+    <span>⇓</span><br>
+    <span>⊢</span><br>
+    <span>⊨</span><br>
+    <span>⟹</span><br>
+    <span>⟸</span><br>
+    <span>ℕ</span><br>
+    <span>ℤ</span><br>
+    <span>ℚ</span><br>
+    <span>ℝ</span><br>
+    <span>ℂ</span><br>
+    <span>ℙ</span><br>
+    <span>ℬ</span><br>
+    <span>⊣</span><br>
+    <span>⊤</span><br>
+    <span>⟶</span><br>
+    <span>⟷</span><br>
+    <span>⟵</span><br>
+    <span>⟼</span><br>
+    <span>⊼</span><br>
+    <span>⊽</span><br>
+    <span>∘</span><br>
+    <span>⟏</span><br>
+    <span>⟑</span><br>
+    <span>⟒</span><br>
+    <span>⟠</span><br>
+    <span>⟡</span><br>
+    <span>⟤</span><br>
+    <span>⟄</span><br>
+    <span>⟈</span><br>
+    <span>⟛</span><br>
+    <span>⟜</span><br>
+    <span>⊾</span><br>
+    <span>α</span><br>
+    <span>β</span><br>
+    <span>γ</span><br>
+    <span>δ</span><br>
+    <span>ε</span><br>
+    <span>ζ</span><br>
+    <span>η</span><br>
+    <span>θ</span><br>
+    <span>ι</span><br>
+    <span>κ</span><br>
+    <span>λ</span><br>
+    <span>μ</span><br>
+    <span>ν</span><br>
+    <span>ξ</span><br>
+    <span>ο</span><br>
+    <span>π</span><br>
+    <span>ρ</span><br>
+    <span>σ</span><br>
+    <span>τ</span><br>
+    <span>υ</span><br>
+    <span>φ</span><br>
+    <span>χ</span><br>
+    <span>ψ</span><br>
+    <span>ω</span><br>
+    <span>Α</span><br>
+    <span>Β</span><br>
+    <span>Γ</span><br>
+    <span>Δ</span><br>
+    <span>Ε</span><br>
+    <span>Ζ</span><br>
+    <span>Η</span><br>
+    <span>Θ</span><br>
+    <span>Ι</span><br>
+    <span>Κ</span><br>
+    <span>Λ</span><br>
+    <span>Μ</span><br>
+    <span>Ν</span><br>
+    <span>Ξ</span><br>
+    <span>Ο</span><br>
+    <span>Π</span><br>
+    <span>Ρ</span><br>
+    <span>Σ</span><br>
+    <span>Τ</span><br>
+    <span>Υ</span><br>
+    <span>Φ</span><br>
+    <span>Χ</span><br>
+    <span>Ψ</span><br>
+    <span>Ω</span><br>
+    <span>𝛼</span><br>
+    <span>𝛽</span><br>
+    <span>𝛾</span><br>
+    <span>𝛿</span><br>
+    <span>𝜀</span><br>
+    <span>𝜁</span><br>
+    <span>𝜂</span><br>
+    <span>𝜃</span><br>
+    <span>𝜄</span><br>
+    <span>𝜅</span><br>
+    <span>𝜆</span><br>
+    <span>𝜇</span><br>
+    <span>𝜈</span><br>
+    <span>𝜉</span><br>
+    <span>𝜊</span><br>
+    <span>𝜋</span><br>
+    <span>𝜌</span><br>
+    <span>𝜎</span><br>
+    <span>𝜏</span><br>
+    <span>𝜐</span><br>
+    <span>𝜙</span><br>
+    <span>𝜒</span><br>
+    <span>𝜓</span><br>
+    <span>𝜔</span><br>
+    <span>𝜶</span><br>
+    <span>𝜷</span><br>
+    <span>𝜸</span><br>
+    <span>𝜹</span><br>
+    <span>𝜺</span><br>
+    <span>𝜻</span><br>
+    <span>𝜼</span><br>
+    <span>𝜽</span><br>
+    <span>𝜾</span><br>
+    <span>𝜿</span><br>
+    <span>𝝀</span><br>
+    <span>𝝁</span><br>
+    <span>𝝂</span><br>
+    <span>𝝃</span><br>
+    <span>𝝄</span><br>
+    <span>𝝅</span><br>
+    <span>𝝆</span><br>
+    <span>𝝇</span><br>
+    <span>𝝈</span><br>
+    <span>𝝉</span><br>
+    <span>𝝊</span><br>
+    <span>𝝋</span><br>
+    <span>𝝌</span><br>
+    <span>𝝍</span><br>
+    <span>𝝎</span><br>
+    <span>𝝏</span><br>
+    <span>𝝐</span><br>
+    <span>𝝑</span><br>
+    <span>𝝒</span><br>
+    <span>𝝓</span><br>
+    <span>𝝔</span><br>
+    <span>𝝕</span><br>
+    <span>𝝖</span><br>
+    <span>𝝗</span><br>
+</div>
+<a href="index.html">
+    <img src="../IMG/logo.png" alt="logo" class="logo" />
+</a>
+
+<script src="../JS/note-mobile.js"></script>
+</body>
+</html>

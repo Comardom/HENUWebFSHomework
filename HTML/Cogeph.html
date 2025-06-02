@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+    <script>
+        const ua = navigator.userAgent;
+        const isMobile = /Android|iPhone|iPod|Mobile/i.test(ua);
+
+        if (isMobile) {
+            setTimeout(() => {
+                document.querySelectorAll("header, .content").forEach(el => {
+                    el.style.width = "95%";
+                });
+                document.querySelectorAll(".logo").forEach(el => {
+                    el.style.maxWidth = "6rem";
+                });
+            }, 100);
+        }
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>关于Cogeph</title>
@@ -8,11 +23,20 @@
 </head>
 <body>
 <header>
-    <img src="../IMG/logo.png" alt="logo" class="logo" />
+    <a href="index.html">
+        <img src="../IMG/logo.png" alt="logo" class="logo" />
+    </a>
 </header>
 <hr>
 <div class="content">
-
+    <p>
+        嘿嘿嘿，我是Cogeph。<br>
+        虽然我什么都不会，但是我会哈气。<br>
+        2023能够让《逸梦集》完整出现可是我的精密安排带来的（大嘘）。<br>
+        我不是一个出色的领导者。<br>
+        但是咱们三个人把日子过好比什么都重要。<br><br>
+        -Cogeph
+    </p>
 </div>
 <hr>
 <footer>

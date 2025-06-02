@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+    <script>
+        const ua = navigator.userAgent;
+        const isMobile = /Android|iPhone|iPod|Mobile/i.test(ua);
+
+        if (isMobile) {
+            setTimeout(() => {
+                document.querySelectorAll("header, .content").forEach(el => {
+                    el.style.width = "95%";
+                });
+                document.querySelectorAll(".logo").forEach(el => {
+                    el.style.maxWidth = "6rem";
+                });
+            }, 100);
+        }
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>《逸梦集》背后的故事</title>
@@ -8,11 +23,20 @@
 </head>
 <body>
 <header>
-    <img src="../IMG/logo.png" alt="logo" class="logo" />
+    <a href="index.html">
+        <img src="../IMG/logo.png" alt="logo" class="logo" />
+    </a>
 </header>
 <hr>
 <div class="content">
-
+    <p>
+        这是一部可能以后不会再出现的作品集，毕竟一个人很难同时拥有青春和对青春的感受。<br>
+        作为一本书，《逸梦集》的设计并不完善，没有索引难以翻找，诗歌排版混乱不堪，都是黑历史啊。<br>
+        logo设计、内文搜集、软件敲定、书本框架等等，都是在不可思议的时间中做成的——高三。<br>
+        如果你读不懂这本书，那很正常，毕竟作者从来就没期待过有人能读懂。<br>
+        还有很多人要感谢，还有很多话想说……会有下一本的。到时候再见。<br><br>
+        -Cogeph
+    </p>
 </div>
 <hr>
 <footer>

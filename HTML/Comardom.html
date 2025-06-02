@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+    <script>
+        const ua = navigator.userAgent;
+        const isMobile = /Android|iPhone|iPod|Mobile/i.test(ua);
+
+        if (isMobile) {
+            setTimeout(() => {
+                document.querySelectorAll("header, .content").forEach(el => {
+                    el.style.width = "95%";
+                });
+                document.querySelectorAll(".logo").forEach(el => {
+                    el.style.maxWidth = "6rem";
+                });
+            }, 100);
+        }
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>关于Comardom</title>
@@ -8,11 +23,20 @@
 </head>
 <body>
 <header>
-    <img src="../IMG/logo.png" alt="logo" class="logo" />
+    <a href="index.html">
+        <img src="../IMG/logo.png" alt="logo" class="logo" />
+    </a>
 </header>
 <hr>
 <div class="content">
-
+    <p>
+        Comardom是《逸梦集》的作者。<br>
+        这个人在文学上的追求，既不是无限精进自己的技术与技巧，也不是为了讨好和迎合读者，反而是自己喜欢什么写什么，往难听了说是自私又傲慢。<br>
+        他的文稿往往产出很慢，并不像很多天才能随手写出半个世界。《流（Adieu）》的创作就大概花费了半年的时间。<br>
+        而且这人写诗不起标题，搞的排版都困难了（怒）。<br>
+        不过这真的很迷人，不是吗？<br><br>
+        -Cogeph
+    </p>
 </div>
 <hr>
 <footer>
