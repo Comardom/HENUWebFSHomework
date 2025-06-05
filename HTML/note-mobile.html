@@ -1,11 +1,22 @@
 <!doctype html>
 <html lang="zh">
 <head>
+    <script>
+        const ua = navigator.userAgent;
+        const isMobile = /Android|iPhone|iPod|Mobile/i.test(ua);
+
+        if (isMobile) {
+            setTimeout(() => {
+                window.location.href = "note-mobile.html";
+            }, 100);
+        } else {
+            window.location.href = "note-pc.html";
+        }
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>写点什么吧……</title>
     <link rel="stylesheet" href="../CSS/note-mobile.css" />
-
 </head>
 <body>
 <div class="main">

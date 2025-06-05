@@ -21,34 +21,29 @@ html {
         font-size: 26px; /* 更大字体 */
     }
 }
+.poem-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 默认 3 列 */
+    gap: 2rem;
+    padding: 3rem;
+}
 
-/* 当屏幕宽度 ≤ 1024px 时应用的样式 */
-@media (max-width: 1024px) {
-    header,.content{
-        width: 95%;
-    }
+/* 小屏幕：2列 */
+@media (max-width: 1440px) {
     .poem-container {
-        grid-template-columns: 2fr;
+        grid-template-columns: repeat(2, 1fr) !important;
+        /*background: pink; !* 测试是否生效，可删 *!*/
     }
 }
-/* 当屏幕宽度 ≤ 1024px 时应用的样式 */
-@media (max-width: 1024px) {
-    header,.content{
-        width: 95%;
-    }
+
+/* 超小屏幕：1列 */
+@media (max-width: 600px) {
     .poem-container {
-        grid-template-columns: 2fr;
+        grid-template-columns: 1fr !important;
+        /*background: lightblue; !* 测试用，可删 *!*/
     }
 }
-/* 当屏幕宽度 ≤ 1600px 时应用的样式 */
-@media (max-width: 1600px) {
-    .medium{
-        flex-direction: column;
-    }
-    .poem-container {
-        grid-template-columns: 3fr;
-    }
-}
+
 body{
     font-family: 'MyFont', sans-serif;
     background: repeating-linear-gradient(
@@ -131,13 +126,7 @@ header,.content,.medium{
 .medium-content{
     padding: 1rem;
 }
-.poem-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem; /* 间距，相当于 poem 的 margin */
-    max-width: 100%;
-    padding: 3rem; /* 替代 poem 的 margin 效果 */
-}
+
 
 .poem {
     min-width: 0; /* 避免内容撑爆容器 */
