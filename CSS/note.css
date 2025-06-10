@@ -1,0 +1,487 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('../FONTS/taiwan.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-size: 20px;
+}
+/* 适配高分辨率屏幕（一般为 Retina 屏幕，分辨率为 192dpi 或更高） */
+@media only screen and (min-resolution: 192dpi) {
+    html {
+        font-size: 22px; /* 增加字体大小 */
+    }
+}
+
+/* 适配超高分辨率屏幕（例如 4K 屏幕，分辨率为 384dpi 或更高） */
+@media only screen and (min-resolution: 384dpi) {
+    html {
+        font-size: 24px; /* 更大字体 */
+    }
+}
+body,
+.main {
+    height: auto; /* 让高度根据内容自适应 */
+    /*overflow-y: hidden;  禁用纵向滚动条 */
+}
+::-webkit-scrollbar {
+    display: none; /* 隐藏滚动条 */
+}
+/* 让 body 内容居中显示，水平和垂直居中 */
+body {
+    font-family: 'MyFont', sans-serif;
+    /*overflow-y: hidden;*/
+    display: flex;
+    overflow: scroll;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    /*height: 100vh; !* 页面占满整个视口高度 *!*/
+    margin: 0; /* 去掉默认的外边距 */
+    width: 100%; /* 页面宽度为 100% */
+    padding: 20px 0; /* 设置上下内边距 */
+    position: relative;
+}
+.main {
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 页面占满整个视口高度 */
+    margin: 0; /* 去掉默认的外边距 */
+    width: 100%; /* 页面宽度为 100% */
+    padding: 20px 0; /* 设置上下内边距 */
+    position: relative;
+}
+/* 设置背景图层 */
+body::before {
+    content: ""; /* 创建一个伪元素 */
+    position: fixed; /* 固定背景 */
+    top: 0; /* 从页面顶部开始 */
+    left: 0; /* 从页面左侧开始 */
+    width: 100%; /* 背景图宽度为 100% */
+    height: 100%; /* 背景图高度为 100% */
+    background-image: url("../IMG/retina_wood.png"); /* 背景图 */
+    background-repeat: repeat; /* 背景图无缝拼接 */
+    background-position: top left; /* 背景图从左上角开始 */
+    /*background-color: rgba(255, 255, 255, 0.5);  设置透明背景，0.5 为透明度 */
+    z-index: -1; /* 确保背景图层在所有内容之后 */
+}
+
+/* .note 样式 */
+.note {
+    width: 70%; /* 宽度为视口的 70% */
+    height: auto; /* 高度自动，随内容变化 */
+    margin: auto; /* 自动外边距，使其水平居中 */
+    min-width: 400px; /* 最小宽度为 400px */
+    position: relative; /* 相对定位，用于定位子元素 */
+    align-items: center; /* 元素在容器中垂直居中 */
+}
+
+/* .backnote 样式，纸张背景 */
+.backnote {
+    background-color: #f4f0e4; /* 设置背景颜色为浅色 */
+    border: 0; /* 去掉边框 */
+}
+
+/* .frontnote 样式，文字区域 */
+.frontnote {
+    background-color: #fbf7ed; /* 设置背景颜色为白色 */
+    border: 0; /* 去掉边框 */
+    overflow-wrap: break-word; /* 允许长单词换行 */
+    width: 95%; /* 宽度为父元素的 95% */
+    margin-left: auto; /* 自动左外边距 */
+    margin-right: 0; /* 右外边距为 0 */
+    border-left: solid 2px #e8e2d7; /* 左侧边框 */
+}
+/* 底部阴影效果 */
+.note::after {
+    content: ""; /* 创建伪元素 */
+    position: absolute; /* 绝对定位 */
+    bottom: 0; /* 紧贴底部 */
+    left: 0; /* 紧贴左边 */
+    height: 20px; /* 阴影高度 */
+    width: 100%; /* 阴影宽度 */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent); /* 阴影渐变效果 */
+    pointer-events: none; /* 使阴影不影响鼠标事件 */
+    z-index: 10; /* 层级设置，确保阴影在其他内容之上 */
+}
+/* 修改 paper输入框 的样式 */
+#paper {
+    background: transparent; /* 背景透明 */
+    border: none; /* 去掉边框 */
+    outline: none; /* 去掉输入框的轮廓 */
+    box-shadow: none; /* 去掉阴影 */
+    width: 100%; /* 宽度 100% */
+    /*height: auto;  高度自动调整 */
+    resize: none; /* 禁止调整大小 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    background-position-y: 1em; /* 设置背景位置 */
+    font-family: 'MyFont', sans-serif;
+    /*font-family: "Courier New", Courier, monospace; !* 使用等宽字体 *!*/
+    line-height: 1.9em; /* 行高 */
+    font-size: 1rem; /* 字体大小 */
+    padding-top: 0.45em; /* 上内边距 */
+    padding-bottom: 0.45em; /* 下内边距 */
+    -webkit-font-smoothing: antialiased; /* 提升字体平滑效果 */
+    -moz-osx-font-smoothing: grayscale; /* 提升字体平滑效果 */
+    scrollbar-width: none; /* Firefox */
+}
+#paper::-webkit-scrollbar {
+    display: none;              /* WebKit */
+}
+/* .backnote 和 .frontnote 样式，纸张的纹理背景 */
+.backnote,
+.frontnote {
+    font-size: 1rem; /* 字体大小 */
+    line-height: 1.8em; /* 行高 */
+    background-image: repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 1.8em,
+            #e8e2d7 1.8em,
+            #e8e2d7 1.9em
+    );
+    background-size: 100% 1.9em; /* 背景重复的间隔 */
+    background-position: 0 0.45em; /* 背景位置调整 */
+}
+
+.notebottom {
+    display: flex; /*保证底栏按钮内联*/
+    /*text-align: right;*/
+    justify-content: flex-end;
+    bottom: -0.5rem;
+    position: relative;
+}
+
+.note-button {
+    background: none; /* 去掉背景 */
+    border: none; /* 去掉边框 */
+    padding: 0; /* 去掉内边距 */
+    font-size: inherit; /* 保持字体大小继承自父元素 */
+    cursor: pointer; /* 悬停时显示小手 */
+    /*text-align: right;*/
+}
+#submit-trigger,#picture-trigger {
+    /*top:5%;*/
+    bottom: 0;
+    filter: grayscale(100%); /* 将颜色转为黑白 */
+    transition: filter 0.3s ease; /* 添加渐变效果 */
+    /*text-align: right;*/
+
+}
+#submit-container button,#emoji-container span{
+    cursor: pointer; /* 显示点击手型光标 */
+}
+.space-button {
+    background: none; /* 去掉背景 */
+    border: none; /* 去掉边框 */
+    padding: 0; /* 去掉内边距 */
+    font-size: inherit; /* 保持字体大小继承自父元素 */
+    -webkit-user-select: none;
+    user-select: none;
+}
+.unselectable {
+    -webkit-user-select: none;
+    user-select: none; /* 禁止选中 */
+    pointer-events: auto; /* 允许鼠标事件 */
+
+}
+
+
+/* 表情容器过渡效果 */
+#emoji-container {
+    display: none;
+    position: fixed;
+    margin: auto;
+    top: 0;
+    /*bottom: 30%;*/
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* 平滑的过渡效果 */
+    max-width: 4rem;
+    height: 100%;
+    overflow: auto;
+    /*border: 0.0625rem solid #ccc;*/
+    /*padding: 0.625rem;*/
+    background-color: #f4f0e3;
+    z-index: 100;
+}
+
+#emoji-container.show {
+    display: block;
+    opacity: 1; /* 当显示时，透明度为 1 */
+}
+#emoji-container span {
+    font-size: 1.5rem;
+}
+#submit-container {
+    display: none;
+    position: fixed;
+    margin: auto;
+    top: 56%;
+    /*bottom: 30%;*/
+    right: 4rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* 平滑的过渡效果 */
+    /*max-width: 4rem;*/
+    /*max-height: 9rem;*/
+    /*overflow: auto;*/
+    /*border: 0.0625rem solid #ccc;*/
+    /*padding: 0.625rem;*/
+    /*background-color: #F4F0E3;*/
+
+    z-index: 100;
+}
+#submit-container.show {
+    display: block;
+    opacity: 1; /* 当显示时，透明度为 1 */
+}
+#submit-container button {
+    background-color: #5e6361;
+    color: white;
+    border: none;
+    padding: 0.2rem 0.2rem;
+    clip-path: polygon(1rem 0%, 100% 0%, 100% 100%, 0% 100%, 0% 1rem);
+    cursor: pointer;
+}
+#picture-container{
+    /*display: none;*/
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    /*visibility: hidden; !* 初始时隐藏 *!*/
+    /*transition: visibility 0s 0.3s; !* 控制显示与隐藏的过渡 *!*/
+    position: fixed;
+    margin: auto;
+    top: 0;
+    /*bottom: 30%;*/
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0s 0.3s; /* 透明度变化的过渡效果 */
+    visibility: hidden; /* 隐藏 */
+    /*transition: opacity 0.3s ease-in-out; !* 平滑的过渡效果 *!*/
+    max-width: 4rem;
+    height: 100%;
+    overflow: auto;
+    /*border: 0.0625rem solid #ccc;*/
+    /*padding: 0.625rem;*/
+    background-color: #E7E1D7;
+
+    z-index: 100;
+}
+#picture-container.show {
+    opacity: 1; /* 显示容器时的透明度 */
+    visibility: visible; /* 显示容器 */
+    pointer-events: all; /* 允许用户交互 */
+}
+.image-container {
+    position: relative;
+    display: inline-block;
+    margin: 0.5rem;
+}
+
+.image-container img {
+    max-width: 3rem;
+    height: auto;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.image-container button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.5rem;
+    display: none; /* 默认隐藏删除按钮 */
+}
+
+.image-container:hover button {
+    display: block; /* 鼠标悬浮时显示删除按钮 */
+}
+#picture-container img.upload-image {
+    width: 3.75rem;
+    height: auto;
+    cursor: zoom-in;
+    transition: transform 0.2s;
+}
+
+#picture-container img.upload-image:hover {
+    transform: scale(1.05);
+}
+
+.editor-wrapper {
+    position: relative;
+}
+.placeholder {
+    position: absolute;
+    top: 0.47rem;
+    /*left: 10px;*/
+    color: #888;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.svg{
+    z-index:15;
+    height:1rem;
+    width:1rem;
+    position: relative;
+}
+
+
+#image-preview-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#image-preview-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: transform 0.2s;
+}
+
+#picture-container img.upload-image {
+    width: 3.75rem;
+    height: auto;
+    cursor: zoom-in;
+}
+
+
+
+
+
+.image-container button,
+.code-block button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: crimson;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.code-label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.code-preview {
+    background: #f5f5f5;
+    padding: 0.5rem;
+    max-width: 500px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+#image-preview-overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+}
+#image-preview-img{
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* 文件容器样式 */
+.file-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 10px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* 文件名样式 */
+.file-name {
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 80%;
+}
+
+/*!* 删除按钮样式 *!*/
+/*.file-delete-button {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    right: 0;*/
+/*    background: transparent;*/
+/*    border: none;*/
+/*    color: red;*/
+/*    font-size: 16px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/* 文件示意图容器的显示逻辑 */
+#picture-container.show {
+    display: block;
+}
+
+/*#picture-container {*/
+/*    display: none;*/
+/*}*/
+.input-none {
+    display: none ;!important;
+}
+#image-input,#code-input{
+    display: none;!important;
+}
+.file-container {
+    position: relative;
+    display: inline-block;
+}
+
+.file-delete-button {
+    display: none; /* 默认隐藏删除按钮 */
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.file-container:hover .file-delete-button {
+    display: block; /* 鼠标悬停时显示删除按钮 */
+}
+.file-container:hover .file-name {
+    max-width: 300px;  /* 鼠标悬停时显示完整文件名 */
+    white-space: normal;  /* 允许换行 */
+}
+.logo{
+    max-width: 5%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
