@@ -7,19 +7,27 @@
 
     if (isMobile) {
       setTimeout(() => {
-        window.location.href = "mobile.html";
+        // window.location.href = "mobile.html";
       }, 100);
     } else {
-      window.location.href = "index.html";
+      window.location.href = "../index.html";
     }
   </script>
+  <style>
+    @font-face {
+      font-family: 'MyFont';
+      src: url('../FONTS/taiwan.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>逸梦集</title>
   <link rel="stylesheet" href="../CSS/mobile.css" />
 
 </head>
-<body>
+<body style="font-family: MyFont,serif;">
 <header>
   <img src="../IMG/logo.png" alt="logo" class="logo" />
   <nav class="menu">
@@ -502,7 +510,7 @@
 
 <footer>
   2410250044 韩泽旭 软件工程
-  &copy; 2025 笃聿Comardom所有 | 联系邮箱：Comardom-Xeemen@outlook.com
+  &copy; 2025 笃聿Comardom所有 | 联系邮箱：Comardom@outlook.com
 </footer>
 <script src="../JS/script.js"></script>
 </body>

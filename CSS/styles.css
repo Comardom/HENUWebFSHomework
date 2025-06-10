@@ -1,11 +1,7 @@
-@font-face {
-    font-family: 'MyFont';
-    src: url('../FONTS/臺灣新細明體.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 html {
+    font-family: 'MyFont', sans-serif;
     font-size: 22px;
 }
 /* 适配高分辨率屏幕（一般为 Retina 屏幕，分辨率为 192dpi 或更高） */
@@ -135,4 +131,7 @@ header,.content,.medium{
 footer{
     margin: auto;
     text-align: center;
+}
+.content{
+    font-family: 'MyFont', sans-serif;
 }

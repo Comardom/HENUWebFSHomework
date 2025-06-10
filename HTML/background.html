@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+    <style>
+        @font-face {
+            font-family: 'MyFont';
+            src: url('../FONTS/taiwan.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
     <script>
         const ua = navigator.userAgent;
         const isMobile = /Android|iPhone|iPod|Mobile/i.test(ua);
@@ -21,9 +29,9 @@
     <title>《逸梦集》背后的故事</title>
     <link rel="stylesheet" href="../CSS/styles.css" />
 </head>
-<body>
+<body style="font-family: MyFont,serif;">
 <header>
-    <a href="index.html">
+    <a href="../index.html">
         <img src="../IMG/logo.png" alt="logo" class="logo" />
     </a>
 </header>
@@ -41,7 +49,7 @@
 <hr>
 <footer>
     2410250044 韩泽旭 软件工程
-    &copy; 2025 笃聿Comardom所有 | 联系邮箱：Comardom-Xeemen@outlook.com
+    &copy; 2025 笃聿Comardom所有 | 联系邮箱：Comardom@outlook.com
 </footer>
 <script src="../JS/script.js"></script>
 </body>
